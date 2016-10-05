@@ -22,6 +22,16 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
     </TableRow>
+
+    <TableRow>
+        <CheckBox
+            android:id="@+id/check_box"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:text="RememberPasswo" />
+    </TableRow>
+
     <TableRow>
         <Button
             android:id="@+id/login"
