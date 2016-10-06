@@ -53,4 +53,12 @@
         android:text="Query data"
         android:layout_below="@+id/button_delete"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button_transaction_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="transaction test"
+        android:layout_below="@+id/button_query"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

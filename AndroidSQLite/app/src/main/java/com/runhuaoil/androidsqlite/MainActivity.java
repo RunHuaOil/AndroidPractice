@@ -26,12 +26,41 @@ public class MainActivity extends AppCompatActivity {
         Button update_button = (Button) findViewById(R.id.button_update);
         Button delete_button = (Button) findViewById(R.id.button_delete);
         Button query_button = (Button) findViewById(R.id.button_query);
+        Button transaction_button = (Button) findViewById(R.id.button_transaction_test);
 
 
         create_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mySQLiteHelper.getWritableDatabase();
+            }
+        });
+
+        transaction_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sqLiteDatabase = mySQLiteHelper.getWritableDatabase();
+                sqLiteDatabase.beginTransaction();
+                try{
+                    sqLiteDatabase.delete("Book",null,null);
+//                    if (true){
+//                        throw new NullPointerException();//手动抛出一个异常,则删除Book的操作会撤销，也不会添加数据
+//                    }
+                    ContentValues values = new ContentValues();
+                    values.put("author", "王爽");
+                    values.put("price", 60);
+                    values.put("pages", 555);
+                    values.put("name", "汇编语言");
+                    sqLiteDatabase.insert("Book", null , values);
+                    values.clear();
+
+
+                    sqLiteDatabase.setTransactionSuccessful();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }finally {
+                    sqLiteDatabase.endTransaction();
+                }
             }
         });
 
