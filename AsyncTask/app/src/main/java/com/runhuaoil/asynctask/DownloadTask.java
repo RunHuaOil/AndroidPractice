@@ -33,6 +33,7 @@ public class DownloadTask extends AsyncTask<Void, Integer, Boolean> {
         progressDialog.setProgress(0);
         progressDialog.setMax(100);
         progressDialog.show();
+        downloadProgress =0;
         Log.d("Test", progressDialog.getProgress() + "");
     }
 
@@ -82,7 +83,7 @@ public class DownloadTask extends AsyncTask<Void, Integer, Boolean> {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return downloadProgress = downloadProgress + 1;
+        return downloadProgress = downloadProgress + 5;
 
     }
 }
