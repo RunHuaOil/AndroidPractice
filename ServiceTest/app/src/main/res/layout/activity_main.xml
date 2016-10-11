@@ -31,6 +31,12 @@
         android:layout_height="wrap_content"
         android:text="StartDownload" />
 
+    <Button
+        android:id="@+id/start_intentService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="StartIntentService" />
+
     <TextView
         android:text="当前下载: "
         android:layout_width="match_parent"

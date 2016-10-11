@@ -1,11 +1,14 @@
 package com.runhuaoil.servicetest;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.support.v7.app.NotificationCompat;
 
 /**
  * Created by RunHua on 2016/10/9.
@@ -24,6 +27,7 @@ public class MyService extends Service {
 
         super.onCreate();
         Log.d("Test","服务首次被创建.");
+
     }
 
     @Override
@@ -35,6 +39,16 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Intent intent1 = new Intent(this,MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent1, 0);
+
+        Notification noti = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("标题")
+                .setContentText("内容")
+                .setContentIntent(pendingIntent)
+                .build();
+        startForeground(1, noti);
         Log.d("Test","服务开始.");
         return super.onStartCommand(intent, flags, startId);
 

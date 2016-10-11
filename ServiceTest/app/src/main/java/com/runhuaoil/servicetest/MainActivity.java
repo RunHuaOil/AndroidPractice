@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private Button bindService;
     private Button unbindService;
     private Button startDownload;
+    private Button startIntentService;
     private TextView textView;
 
     private boolean isBindService = false;//记录 service 绑定和取消绑定的状态
@@ -86,7 +87,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         bindService = (Button) findViewById(R.id.bind_service);
         unbindService = (Button) findViewById(R.id.unbind_service);
         startDownload = (Button) findViewById(R.id.start_download);
+        startIntentService = (Button) findViewById(R.id.start_intentService);
 
+        startIntentService.setOnClickListener(this);
         bindService.setOnClickListener(this);
         startDownload.setOnClickListener(this);
         unbindService.setOnClickListener(this);
@@ -100,6 +103,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View v) {
 
         switch (v.getId()) {
+            case R.id.start_intentService:
+                Log.d("Test", "Thread id is " + Thread.currentThread().getId());
+                Intent intent = new Intent(this, MyIntentService.class);
+                startService(intent);
+                break;
             case R.id.start_download:
                 if(downloadTask != null){
                     downloadTask.startDownload();//开始启动 service 中的 downloadTask 去下载
