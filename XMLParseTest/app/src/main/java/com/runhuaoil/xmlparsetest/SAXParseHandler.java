@@ -24,19 +24,13 @@ public class SAXParseHandler extends DefaultHandler {
         id = new StringBuilder();
         name = new StringBuilder();
         version = new StringBuilder();
-        //Log.d("Test","!!!startDocument" );
-    }
-
-    @Override
-    public void endDocument() throws SAXException {
-        super.endDocument();
-        //Log.d("Test","!!!endDocument" );
+        Log.d("Test","!!!startDocument" );
     }
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         nodeName = localName;
-        //Log.d("Test","!!!startElement nodeName : " + nodeName);
+        Log.d("Test","!!!startElement nodeName : " + nodeName);
 
     }
 
@@ -51,14 +45,14 @@ public class SAXParseHandler extends DefaultHandler {
             name.setLength(0);
             version.setLength(0);
         }
-        //Log.d("Test","!!!endElement");
+        Log.d("Test","!!!endElement");
 
     }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
 
-        //Log.d("Test","ch:" + String.valueOf(ch) + ",start:" + start + ",length:" + length);
+        Log.d("Test","!!!characters:" + String.valueOf(ch) + ",start:" + start + ",length:" + length);
 
         switch (nodeName){
             case "id":
@@ -75,5 +69,11 @@ public class SAXParseHandler extends DefaultHandler {
 
         }
 
+    }
+
+    @Override
+    public void endDocument() throws SAXException {
+        super.endDocument();
+        Log.d("Test","!!!endDocument" );
     }
 }
