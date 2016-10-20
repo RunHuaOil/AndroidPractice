@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.runhuaoil.locationmanagertest.MainActivity">
+
+    <TextView
+        android:id="@+id/position_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="没有位置信息，请稍后" />
+
+    <Button
+        android:text="Button"
+        android:onClick="onButtonClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button" />
+
+    <TextView
+        android:text="点击按钮获取明文地址"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:id="@+id/location_text_view" />
+
+
+</LinearLayout>
